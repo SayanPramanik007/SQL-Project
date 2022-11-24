@@ -1,0 +1,53 @@
+create database Research_Project_2;
+use Research_Project_2;
+
+
+
+/*1. What kind of game was mostly created*/
+select Genre, count(Global_Sales)
+From Video_Games_Sales
+Group by Genre
+order by count(Genre) desc;
+
+/*2. IN Which Platform Pepole prefer to play games*/
+Select Platform, genre, count(Platform)
+From Video_Games_Sales
+Group by Platform
+order by count(Platform) desc;
+
+/*3. what kind of game was sold in which year*/
+Select year , Genre, max(Global_Sales)
+From video_games_sales
+group by year
+order by Global_Sales desc
+Limit 10;
+
+/*4. Top 10 Best Selling games in the Notrh America*/
+Select Name, NA_Sales, year, platform, genre
+From Video_Games_Sales
+Order by NA_Sales Desc
+Limit 10;
+
+/*5. Top 10 Best Selling games in the European Union*/
+Select Name, EU_Sales, year
+From Video_Games_Sales
+Order by EU_Sales Desc
+Limit 10;
+
+/*6. Top 10 Best Selling games in the Japan*/
+Select Name, JP_Sales, year
+From Video_Games_Sales
+Order by JP_Sales Desc
+Limit 10;
+
+/*7. Top 10 Best Selling games in the Other Countrys*/
+Select Name, Other_Sales, year
+From Video_Games_Sales
+Order by Other_Sales Desc
+Limit 10;
+
+/*8. Top 10 Best Selling games in the World*/
+Select Name, Global_Sales, year
+From Video_Games_Sales
+Order by Global_Sales Desc
+Limit 10;
